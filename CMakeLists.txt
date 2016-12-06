@@ -54,6 +54,8 @@ option(use_cyclonessl "set use_cyclonessl to ON if cyclonessl is to be used, set
 option(compileOption_C "passes a string to the command line of the C compiler" OFF)
 option(compileOption_CXX "passes a string to the command line of the C++ compiler" OFF)
 
+set(current_build_shared_state $(BUILD_SHARED_LIBS))
+
 if(${use_cyclonessl} AND WIN32)
     set(cyclonessl_c_files
         $ENV{CycloneSSLDir}/cyclone_ssl/ssl_common.c
@@ -289,6 +291,7 @@ compileAsC99()
 
 #these are the C source files
 set(source_c_files
+./src/aziotsharedutil.def
 ./src/base64.c
 ./src/buffer.c
 ./src/connection_string_parser.c
@@ -524,8 +527,10 @@ endif()
 
 if (NOT ${skip_unittests})
     include("dependencies-test.cmake")
+    set(BUILD_SHARED_LIBS OFF)
     add_subdirectory(testtools)
     add_subdirectory(tests)
+    set(BUILD_SHARED_LIBS $(current_build_shared_state))
 endif()
 
 if (NOT ${skip_samples})

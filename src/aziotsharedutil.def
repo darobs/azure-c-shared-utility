@@ -63,9 +63,6 @@ EXPORTS
     socketio_send
     socketio_dowork
     socketio_setoption
-    _vsnprintf_l
-    _vsprintf_l
-    sprintf
     socketio_get_interface_description
     platform_init
     platform_deinit
@@ -120,7 +117,6 @@ EXPORTS
     STRING_TOKENIZER_create_from_char
     STRING_TOKENIZER_get_next_token
     STRING_TOKENIZER_destroy
-    vsnprintf
     STRING_new
     STRING_clone
     STRING_construct
@@ -225,15 +221,9 @@ EXPORTS
     ConstMap_ContainsValue
     ConstMap_GetValue
     ConstMap_GetInternals
-    strtoull_s
-    strtof_s
-    strtold_s
     mallocAndStrcpy_s
     unsignedIntToString
     size_tToString
-    _vfprintf_l
-    vprintf
-    printf
     consolelogger_log
     CONSTBUFFER_Create
     CONSTBUFFER_CreateFromBuffer

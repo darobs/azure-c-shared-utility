@@ -54,7 +54,7 @@ option(use_cyclonessl "set use_cyclonessl to ON if cyclonessl is to be used, set
 option(compileOption_C "passes a string to the command line of the C compiler" OFF)
 option(compileOption_CXX "passes a string to the command line of the C++ compiler" OFF)
 
-set(current_build_shared_state $(BUILD_SHARED_LIBS))
+set(current_build_shared_state ${BUILD_SHARED_LIBS})
 
 if(${use_cyclonessl} AND WIN32)
     set(cyclonessl_c_files
@@ -530,7 +530,7 @@ if (NOT ${skip_unittests})
     set(BUILD_SHARED_LIBS OFF)
     add_subdirectory(testtools)
     add_subdirectory(tests)
-    set(BUILD_SHARED_LIBS $(current_build_shared_state))
+    set(BUILD_SHARED_LIBS ${current_build_shared_state})
 endif()
 
 if (NOT ${skip_samples})

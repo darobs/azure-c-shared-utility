@@ -55,7 +55,7 @@ option(use_cyclonessl "set use_cyclonessl to ON if cyclonessl is to be used, set
 
 option(compileOption_C "passes a string to the command line of the C compiler" OFF)
 option(compileOption_CXX "passes a string to the command line of the C++ compiler" OFF)
-option(build_as_shared "build the C Shared libaries as shared"  OFF)
+option(build_as_dynamic "build the C Shared libaries as shared"  OFF)
 
 if(${use_cyclonessl} AND WIN32)
     set(cyclonessl_c_files
@@ -474,7 +474,7 @@ ELSE()
 ENDIF(WIN32)
 
 #this is the product (a library)
-if(${build_as_shared})
+if(${build_as_dynamic})
     add_library(aziotsharedutil SHARED ./src/aziotsharedutil.def ${source_c_files} ${source_h_files})
 else()
     add_library(aziotsharedutil ${source_c_files} ${source_h_files})
